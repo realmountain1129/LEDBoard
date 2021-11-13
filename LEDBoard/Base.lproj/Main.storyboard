@@ -163,6 +163,9 @@
                                 <rect key="frame" x="179.5" y="438.5" width="55.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="tapSaveButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="azD-2a-awU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PnW-j6-iQj"/>
