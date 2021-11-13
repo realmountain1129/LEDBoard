@@ -37,12 +37,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Settings"/>
+                                <connections>
+                                    <segue destination="sJ4-71-O1R" kind="show" id="htg-Ro-Cg7"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="sJ4-71-O1R" kind="show" id="PtU-vY-kz2"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentsLabel" destination="abK-Hd-86I" id="683-Cz-tmI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +54,7 @@
         <!--Settings-->
         <scene sceneID="wvT-1B-V4J">
             <objects>
-                <viewController id="sJ4-71-O1R" sceneMemberID="viewController">
+                <viewController id="sJ4-71-O1R" customClass="SettingViewController" customModule="LEDBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zrr-9w-aqF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +80,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="s6r-CU-PNp">
-                                <rect key="frame" x="24" y="216.5" width="366" height="66.5"/>
+                                <rect key="frame" x="24" y="216.5" width="366" height="81.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텍스트 색상 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20I-pe-x4m">
                                         <rect key="frame" x="0.0" y="0.0" width="112" height="20.5"/>
@@ -86,29 +89,38 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="YrQ-Il-4HM">
-                                        <rect key="frame" x="0.0" y="35.5" width="209.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="196" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-HF-Bqa">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="노란색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="yellow_circle"/>
+                                                <connections>
+                                                    <action selector="tapTextColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="Ohl-sa-cJL"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWG-U6-YQ7">
-                                                <rect key="frame" x="74.5" y="0.0" width="60.5" height="31"/>
+                                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWG-U6-YQ7">
+                                                <rect key="frame" x="70" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="자주색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="purple_circle" title=""/>
+                                                <connections>
+                                                    <action selector="tapTextColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="I2Q-0o-aiI"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL3-qJ-9ev">
-                                                <rect key="frame" x="149" y="0.0" width="60.5" height="31"/>
+                                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL3-qJ-9ev">
+                                                <rect key="frame" x="140" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="초록색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="green_circle"/>
+                                                <connections>
+                                                    <action selector="tapTextColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="rGd-O3-jwW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eoS-qI-AHk">
-                                <rect key="frame" x="24" y="318" width="366" height="66.5"/>
+                                <rect key="frame" x="24" y="333" width="366" height="81.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배경 색상 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCp-d5-50i">
                                         <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
@@ -117,29 +129,38 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zxd-3Y-umM">
-                                        <rect key="frame" x="0.0" y="35.5" width="209.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="196" height="46"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-XO-kth">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="검정색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="black_circle"/>
+                                                <connections>
+                                                    <action selector="tapBackgroundColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="NVe-IM-WGG"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6N-J8-ynw">
-                                                <rect key="frame" x="74.5" y="0.0" width="60.5" height="31"/>
+                                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6N-J8-ynw">
+                                                <rect key="frame" x="70" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="파랑색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="blue_circle"/>
+                                                <connections>
+                                                    <action selector="tapBackgroundColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="RuR-wz-viF"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-cg-ch6">
-                                                <rect key="frame" x="149" y="0.0" width="60.5" height="31"/>
+                                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-cg-ch6">
+                                                <rect key="frame" x="140" y="0.0" width="56" height="46"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="주황색"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="orange_circle"/>
+                                                <connections>
+                                                    <action selector="tapBackgroundColorButton:" destination="sJ4-71-O1R" eventType="touchUpInside" id="Jbt-n1-Cnc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPx-W8-7kK">
-                                <rect key="frame" x="179.5" y="408.5" width="55.5" height="31"/>
+                                <rect key="frame" x="179.5" y="438.5" width="55.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                             </button>
@@ -161,6 +182,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Nhw-4I-VZi"/>
+                    <connections>
+                        <outlet property="blackButton" destination="HbO-XO-kth" id="jNd-oc-o9z"/>
+                        <outlet property="blueButton" destination="E6N-J8-ynw" id="l03-NP-uS8"/>
+                        <outlet property="greenButton" destination="RL3-qJ-9ev" id="pA0-2l-NIU"/>
+                        <outlet property="orangeButton" destination="lrZ-cg-ch6" id="ctR-eT-RyC"/>
+                        <outlet property="purpleButton" destination="kWG-U6-YQ7" id="UCh-YM-i90"/>
+                        <outlet property="textField" destination="vpK-Q9-eAq" id="NCY-bw-fKu"/>
+                        <outlet property="yellowButton" destination="nNk-HF-Bqa" id="XCJ-xm-MEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt9-eG-DhE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +214,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="black_circle" width="32" height="32"/>
+        <image name="blue_circle" width="32" height="32"/>
+        <image name="green_circle" width="32" height="32"/>
+        <image name="orange_circle" width="32" height="32"/>
+        <image name="purple_circle" width="32" height="32"/>
+        <image name="yellow_circle" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
